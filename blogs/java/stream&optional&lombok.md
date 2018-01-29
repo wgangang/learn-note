@@ -37,7 +37,11 @@ IntStream.range(1, 4)
 ### stream重要方法说明
 - map 根据传入的对象处理之后返回新的对象
 - flatMap 传入对象返回一个新的 stream 链
+- filter 过滤不需要的
+- sorted 排序
+- distinct 去重
 
+### 图片展示
 
 ![stream方法图及说明](stream.jpg)
 
