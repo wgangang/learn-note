@@ -139,7 +139,7 @@ Supplier<Stream<String>> streamSupplier =
 
 
 ### 图片展示
-![Collectors方法图及说明](collectors.jpg)
+![Collectors方法图及说明](collectors.png)
 
 ** 注: **
 - 中间是操作(可有可无)
