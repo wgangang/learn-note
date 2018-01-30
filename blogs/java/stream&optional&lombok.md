@@ -36,13 +36,86 @@ IntStream.range(1, 4)
 ```
 ### stream重要方法说明
 - map 根据传入的对象处理之后返回新的对象
+```
+Stream.of("a1", "a2", "a3").map(s->{
+           if(StringUtils.startsWith(s,"a")){
+               return s;
+           }else{
+               return null;
+           }
+       }).collect(Collectors.toList());
+```
 - flatMap 传入对象返回一个新的 stream 链
+```
+Stream.of(Lists.newArrayList(Lists.newArrayList("a1", "a2", "a3"),
+                Lists.newArrayList("b1", "b2", "b3"),
+                Lists.newArrayList("c1", "c2", "c3")))
+                .flatMap(s -> s.stream()).flatMap(d -> d.stream()).map(s -> {
+            if (StringUtils.startsWith(s, "a")) {
+                return s;
+            } else {
+                return null;
+            }
+        }).filter(Objects::nonNull).collect(Collectors.toList());
+```
 - filter 过滤不需要的
+```
+Stream.of("a1", "a2", "a3").map(s->{
+            if(StringUtils.startsWith(s,"a")){
+                return s;
+            }else{
+                return null;
+            }
+        }).filter(Objects::nonNull).collect(Collectors.toList());
+```
 - sorted 排序
+```
+Stream.of("c", "b", "a").sorted(Comparator.naturalOrder())
+                .peek(System.out::println).collect(Collectors.toList());
+//a
+//b
+//c
+```
 - distinct 去重
+```
+Stream.of("c", "c", "a").distinct()
+                .peek(System.out::println).collect(Collectors.toList());
+//c
+//a              
+```
+- Collect 终端操作 收集转换想要的结果
+```
+Stream.of("c", "b", "a").sorted(Comparator.naturalOrder())
+                .peek(System.out::println).collect(Collectors.toList());
+```
+- reduce 数据合并
+```
+//第一种
+String result = Stream.of("d2", "a2", "b1", "b3", "c").reduce((a,b)->a+b).get();
+        System.out.println(result);
+//d2a2b1b3c
+//第二种
+String result = Stream.of("d2", "a2", "b1", "b3", "c")
+    .reduce(new String("e"),(s,a)-> s + a);
+    System.out.println(result);
+//ed2a2b1b3c
+//第三种
+String result = Stream.of("d2", "a2", "b1", "b3", "c").reduce(new String(""),(s,a)-> {
+            System.out.println("s=" + s + "; a=" + a);
+            return "e" + s + a;
+        },(a,b)->{
+            System.out.println("a=" + a + ";b=" + b);
+            return "f" + a + b;
+        });
+        System.out.println(result);
+//s=; a=d2
+//s=eed2a2; a=b1
+//s=eeed2a2b1; a=b3
+//s=eeeed2a2b1b3; a=c
+//eeeeed2a2b1b3c      
+```
 
 ### 图片展示
-
 ![stream方法图及说明](stream.jpg)
 
 ### stream 链重用
@@ -56,7 +129,17 @@ Supplier<Stream<String>> streamSupplier =
        streamSupplier.get().noneMatch(s -> true);  // ok
 ```
 
+## Collectors 说明
+### 常用方法
+- toList 汇总成List集合
+- toSet 汇总成Set集合
+- toMap 转换成Map集合
+- joining 连接返回的的数据流
+- groupingBy
 
+
+### 图片展示
+![Collectors方法图及说明](collectors.jpg)
 
 ** 注: **
 - 中间是操作(可有可无)
