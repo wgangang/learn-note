@@ -1,5 +1,13 @@
 # 学习笔记
 
+## java
+
+- [stream&option&lombok](https://github.com/wgangang/learn-note/blob/master/java/tream&option&lombok.md)
+
+- [java虚拟机](https://github.com/wgangang/learn-note/blob/master/java/java虚拟机.md)
+
+- [并发编程与线程安全](https://github.com/wgangang/learn-note/blob/master/java/并发编程与线程安全.md)
+
 ## docker 笔记
 
 ## 项目中shell
