@@ -11,3 +11,4 @@
 - 新生代：老年代 = 2：3，Eden：Survivor = 1:3
 - 老年代出发 FULL GC（MAJOR GC），触发是会发生 STW（stop the word）
 
+
