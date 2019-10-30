@@ -2,11 +2,11 @@
 
 ## java
 
-- [stream&option&lombok](https://github.com/wgangang/learn-note/blob/master/java/tream&option&lombok.md)
+- [stream&option&lombok](https://github.com/wgangang/learn-note/blob/master/blogs/java/stream&optional&lombok.md)
 
-- [java虚拟机](https://github.com/wgangang/learn-note/blob/master/java/java虚拟机.md)
+- [java虚拟机](https://github.com/wgangang/learn-note/blob/master/blogs/java/java虚拟机.md)
 
-- [并发编程与线程安全](https://github.com/wgangang/learn-note/blob/master/java/并发编程与线程安全.md)
+- [并发编程与线程安全](https://github.com/wgangang/learn-note/blob/master/blogs/java/并发编程与线程安全.md)
 
 ## docker 笔记
 
